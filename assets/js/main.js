@@ -30,12 +30,19 @@
 
   /* --- Mobil menü --- */
   var toggle = document.querySelector(".nav-toggle");
+  var scrim = document.querySelector("[data-nav-scrim]");
   if (toggle) {
     toggle.addEventListener("click", function () {
       document.body.classList.toggle("nav-open");
     });
     document.querySelectorAll(".nav a").forEach(function (a) {
       a.addEventListener("click", function () { document.body.classList.remove("nav-open"); });
+    });
+    if (scrim) {
+      scrim.addEventListener("click", function () { document.body.classList.remove("nav-open"); });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") document.body.classList.remove("nav-open");
     });
   }
 
