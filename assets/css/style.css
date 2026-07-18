@@ -265,21 +265,21 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .checklist li { display: flex; align-items: flex-start; gap: 12px; color: var(--text); font-weight: 500; }
 .checklist li svg { width: 22px; height: 22px; flex: none; color: var(--aqua); margin-top: 2px; }
 
-/* ====================== Galéria (munkafotó helyőrzők) ====================== */
+/* ====================== Galéria (munkafotók) ====================== */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .gallery .ph { grid-column: span 1; }
 .gallery .ph.wide { grid-column: span 2; }
 .ph {
-  position: relative; border-radius: var(--radius); overflow: hidden; min-height: 240px;
-  background: linear-gradient(135deg, var(--bg-800), var(--bg-850)); border: 1px dashed var(--line-2);
-  display: grid; place-items: center; text-align: center; transition: border-color .3s, transform .3s;
+  position: relative; border-radius: var(--radius); overflow: hidden; min-height: 240px; aspect-ratio: 4 / 3;
+  background: var(--bg-850); border: 1px solid var(--line); transition: border-color .35s, transform .35s var(--ease), box-shadow .35s;
 }
-.ph:hover { border-color: rgba(31,218,198,.5); transform: translateY(-4px); }
-.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ph__inner { position: relative; padding: 20px; color: var(--muted-2); }
-.ph__inner svg { width: 40px; height: 40px; color: rgba(31,218,198,.5); margin: 0 auto 12px; }
-.ph__inner b { display: block; color: var(--muted); font-family: var(--font); font-size: 0.98rem; }
-.ph__inner span { font-size: 0.82rem; }
+.ph:hover { border-color: rgba(31,218,198,.5); transform: translateY(-5px); box-shadow: 0 26px 50px -28px rgba(31,218,198,.5); }
+.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease), filter .4s; filter: saturate(1.03); }
+.ph:hover img { transform: scale(1.06); }
+.ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(4,16,29,.88) 0%, rgba(4,16,29,.25) 42%, transparent 68%); pointer-events: none; }
+.ph__cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; z-index: 1; }
+.ph__cap b { display: block; color: #fff; font-family: var(--font); font-size: 1rem; letter-spacing: -0.01em; }
+.ph__cap span { display: block; color: #bcd9e8; font-size: 0.83rem; margin-top: 2px; }
 
 /* ====================== Statisztika csík ====================== */
 .stat-strip-section { padding-top: clamp(30px, 4vw, 50px); padding-bottom: clamp(30px, 4vw, 50px); }
