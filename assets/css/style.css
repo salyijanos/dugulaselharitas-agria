@@ -419,8 +419,9 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .footer-col ul { list-style: none; display: grid; gap: 10px; }
 .footer-col a { font-size: 0.93rem; color: var(--muted); transition: color .2s; }
 .footer-col a:hover { color: var(--aqua); }
-.footer-contact li { display: flex; gap: 10px; align-items: center; font-size: 0.93rem; margin-bottom: 10px; color: var(--muted); }
-.footer-contact svg { width: 18px; height: 18px; color: var(--aqua); flex: none; }
+.footer-contact li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.93rem; margin-bottom: 10px; color: var(--muted); }
+.footer-contact svg { width: 18px; height: 18px; color: var(--aqua); flex: none; margin-top: 2px; }
+.footer-contact li > * { min-width: 0; overflow-wrap: anywhere; }
 .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.85rem; color: var(--muted-2); }
 .footer-bottom a { color: var(--muted); } .footer-bottom a:hover { color: var(--aqua); }
 
@@ -534,6 +535,13 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 
   .cookie { max-width: none; }
   body.nav-open { overflow: hidden; }
+
+  /* Lábléc: egy oszlopba rendezve, rendezett térközökkel */
+  .site-footer { padding: 46px 0 22px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 34px; margin-bottom: 34px; }
+  .footer-about p { max-width: none; }
+  .footer-col { border-top: 1px solid var(--line); padding-top: 22px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 @media (max-width: 560px) {
   .grid-2, .grid-3, .grid-4, .process { grid-template-columns: 1fr; }
