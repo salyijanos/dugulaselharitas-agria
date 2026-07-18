@@ -1,4 +1,4 @@
-# Agria Duguláselhárítás – weboldal (átadási leírás)
+# Duguláselhárítás Eger – weboldal (átadási leírás)
 
 Statikus weboldal (HTML/CSS/JS), külső keretrendszer nélkül. Bármilyen tárhelyre feltölthető, a fájlokat a domain gyökerébe kell másolni.
 
