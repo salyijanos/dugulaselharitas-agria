@@ -117,19 +117,45 @@
     }, { passive: true });
   }
 
+  /* --- Google Analytics 4 (Consent Mode) ---
+     A mérés CSAK akkor indul el, ha a látogató a sütisávban az
+     "Elfogadom" gombra kattintott (localStorage: agria_cookie_consent = "all").
+     Beállítás: cseréld le a G-XXXXXXXXXX helyőrzőt a saját GA4 mérési
+     azonosítódra (lásd OLVASSEL.md). Amíg helyőrző van, a mérés nem tölt be. */
+  var GA_ID = "G-XXXXXXXXXX";
+  function loadGA() {
+    if (GA_ID.indexOf("XXXX") > -1 || window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("consent", "default", {
+      ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+      analytics_storage: "granted"
+    });
+    gtag("js", new Date());
+    gtag("config", GA_ID, { anonymize_ip: true });
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(s);
+  }
+
   /* --- Sütikezelő --- */
   var COOKIE_KEY = "agria_cookie_consent";
   var banner = document.querySelector(".cookie");
+  var storedConsent = null;
+  try { storedConsent = localStorage.getItem(COOKIE_KEY); } catch (e) {}
+  if (storedConsent === "all") loadGA();
   if (banner) {
-    var stored = null;
-    try { stored = localStorage.getItem(COOKIE_KEY); } catch (e) {}
-    if (!stored) {
+    if (!storedConsent) {
       setTimeout(function () { banner.classList.add("show"); }, 900);
     }
     banner.querySelectorAll("[data-cookie]").forEach(function (b) {
       b.addEventListener("click", function () {
-        try { localStorage.setItem(COOKIE_KEY, b.getAttribute("data-cookie")); } catch (e) {}
+        var val = b.getAttribute("data-cookie");
+        try { localStorage.setItem(COOKIE_KEY, val); } catch (e) {}
         banner.classList.remove("show");
+        if (val === "all") loadGA();
       });
     });
   }
