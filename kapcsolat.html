@@ -118,7 +118,7 @@
       <h2 style="font-size:1.5rem;margin-bottom:6px">Írjon nekem</h2>
       <p style="margin-bottom:24px;font-size:0.98rem">Töltse ki az űrlapot, és leírom vagy telefonon egyeztetjük a részleteket. A csillaggal jelölt mezők kitöltése kötelező.</p>
 
-      <form id="kapcsolat-form" action="https://formspree.io/f/maqroeea" method="POST" novalidate>
+      <form id="kapcsolat-form" action="https://formspree.io/f/maqroeea" method="POST">
         <div class="form-status" role="status"></div>
         <div class="field-row">
           <div class="field">
@@ -132,17 +132,17 @@
         </div>
         <div class="field-row">
           <div class="field">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="pelda@email.hu">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="pelda@email.hu" required>
           </div>
           <div class="field">
-            <label for="telepules">Település</label>
-            <input type="text" id="telepules" name="telepules" placeholder="Pl. Eger">
+            <label for="telepules">Település *</label>
+            <input type="text" id="telepules" name="telepules" placeholder="Pl. Eger" required>
           </div>
         </div>
         <div class="field">
-          <label for="tipus">Miben segíthetek?</label>
-          <select id="tipus" name="tipus">
+          <label for="tipus">Miben segíthetek? *</label>
+          <select id="tipus" name="tipus" required>
             <option>Duguláselhárítás (lakás, ház)</option>
             <option>Gerincvezeték, társasház</option>
             <option>Csatornatisztítás</option>
@@ -162,6 +162,24 @@
         <button type="submit" class="btn btn--primary btn--lg" style="width:100%">Üzenet küldése</button>
         <p class="form-note">Sürgős esetben inkább hívjon: <a href="tel:+36703601046" style="color:var(--aqua);font-weight:700">+36 70 360 1046</a></p>
       </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="wrap media-split reverse">
+    <div class="media-wrap reveal">
+      <figure class="media-figure">
+        <img src="assets/img/dugulaselharitas-6.jpg" alt="Konyhai lefolyó duguláselhárítása gépi spirállal a helyszínen, Egerben" loading="lazy" width="1200" height="1600">
+        <figcaption><b>Gyors, tiszta munka</b> – a konyhai lefolyótól a gerincvezetékig</figcaption>
+      </figure>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Miért érdemes hívni</span>
+      <h2>Egy hívás, és a gond megoldódik</h2>
+      <p>A legtöbb dugulást egyetlen kiszállással, bontás nélkül megoldom. Nem kell napokat várnia, és nem marad utána rendetlenség sem.</p>
+      <p>Hívjon bátran, vagy töltse ki az űrlapot – megbeszéljük, mikor tudok menni és mennyibe kerül.</p>
+      <a href="tel:+36703601046" class="btn btn--outline" style="margin-top:8px">Hívjon most</a>
     </div>
   </div>
 </section>

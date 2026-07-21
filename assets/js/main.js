@@ -166,6 +166,17 @@
     var status = form.querySelector(".form-status");
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+      // Kötelező mezők és a hozzájárulás ellenőrzése (natív validáció mellett)
+      if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      var consent = form.querySelector('input[name="hozzajarulas"]');
+      if (consent && !consent.checked) {
+        if (typeof consent.reportValidity === "function") consent.reportValidity();
+        showStatus("err", "A küldéshez kérjük, fogadja el az adatkezelési hozzájárulást.");
+        return;
+      }
       var action = form.getAttribute("action") || "";
       if (action.indexOf("FORM_ID") > -1 || action === "") {
         // Helyőrző – Formspree azonosító még nincs beállítva
